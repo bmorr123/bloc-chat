@@ -1,1 +1,11 @@
-<h1>Home Page</h1>
+<section class="menu-bar">
+    <h1 class="menu-bar-header">Bloc Chat</h1>
+    <ul class="menu-bar-nav">
+        <li class="menu-bar-room" ng-repeat="room in rooms">
+            <a class="menu-bar-room-link" href="#">{{ room.$value }}</a>
+        </li>
+    </ul>
+</section>
+<main>
+    <!-- room view structure here -->
+</main>
