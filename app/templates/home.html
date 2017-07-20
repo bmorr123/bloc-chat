@@ -1,5 +1,8 @@
 <section class="menu-bar">
     <h1 class="menu-bar-header">Bloc Chat</h1>
+    <div class="create-room-div" ng-controller="ModalCtrl as modal">
+        <button type="button" class="btn btn-primary" ng-click="modal.open()">New room</button>
+    </div>
     <ul class="menu-bar-nav">
         <li class="menu-bar-room" ng-repeat="room in home.rooms">
             <a class="menu-bar-room-link" href="#">{{ room.$value }}</a>

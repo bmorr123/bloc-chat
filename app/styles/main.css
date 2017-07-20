@@ -20,9 +20,14 @@ body {
     z-index: 1;
 }
 .menu-bar .menu-bar-header {
+    display: inline-block;
     position: relative;
     top: 0.5rem;
     padding-left: 2rem;
+}
+.menu-bar .create-room-div {
+    display: inline-block;
+    padding: 2rem;
 }
 .menu-bar .menu-bar-nav {
     position: relative;

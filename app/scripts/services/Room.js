@@ -6,6 +6,15 @@
 
         Room.all = rooms;
 
+        /*
+        * @function add
+        * @desc Adds a new chat room to the array of rooms
+        * @param {Object} room
+        */
+        Room.add = function(room) {
+            Room.all.$add(room);
+        };
+
         return Room;
     }
 
