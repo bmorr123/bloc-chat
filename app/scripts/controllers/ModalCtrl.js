@@ -1,18 +1,36 @@
 (function() {
-    function ModalCtrl($uibModal, Room) {
-        this.open = function() {
-            var modalInstance = $uibModal.open({
-                ariaLabelledBy: 'modal-title',
-                ariaDescribedBy: 'modal-body',
-                templateUrl: '/templates/modals/room_modal.html',
-                controller: 'ModalCtrl as modal'
-            });
+    function ModalCtrl($uibModalInstance, Room) {
+        /*
+        * @desc Holds the value of the text entered in modal text box
+        * @type {String}
+        */
+        this.roomName = "";
 
-            modalInstance.result;
+        /*
+        * @function cancel
+        * @desc Closes the modal when the user clicks the cancel button
+        */
+        this.cancel = function() {
+            $uibModalInstance.dismiss('cancel');
+        };
+
+        /*
+        * @function createRoom
+        * @desc Creates a new chat room to display on the home page
+        */
+        this.createRoom = function() {
+            //Obtain name of room to create object
+            var customRoomName = this.roomName;
+
+            //Add a new room object
+            var newRoom = { name: customRoomName };
+            Room.add(newRoom);
+
+            $uibModalInstance.close('added room');
         };
     }
 
     angular
         .module('blocChat')
-        .controller('ModalCtrl', ['$uibModal', 'Room', ModalCtrl]);
+        .controller('ModalCtrl', ['$uibModalInstance', 'Room', ModalCtrl]);
 })();

@@ -40,3 +40,29 @@ body {
 .menu-bar .menu-bar-nav .menu-bar-room-link {
     text-decoration: none;
 }
+
+@media (min-width: 640px) {
+    html { font-size: 112%; }
+}
+
+@media (min-width: 1024px) {
+    html { font-size: 120%; }
+}
+
+@media (max-width: 640px) {
+    .menu-bar {
+        width: 40%;
+    }
+
+    .menu-bar .create-room-div {
+        display: block;
+        position: relative;
+        padding: 0.5rem;
+        left: 10%;
+    }
+
+    .menu-bar .menu-bar-header {
+        display: block;
+        top: 0;
+    }
+}

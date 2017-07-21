@@ -4,6 +4,10 @@
         var ref = firebase.database().ref().child("rooms");
         var rooms = $firebaseArray(ref);
 
+        /*
+        * @desc Stores the array of rooms from Firebase database
+        * @type {Array}
+        */
         Room.all = rooms;
 
         /*
@@ -12,7 +16,11 @@
         * @param {Object} room
         */
         Room.add = function(room) {
-            Room.all.$add(room);
+            Room.all.$add(room).then(function(ref) {
+                var id = ref.key;
+                console.log("Added record with id " + id);
+                var newRoomIndex = Room.all.$indexFor(id); // returns location in the array
+            });
         };
 
         return Room;

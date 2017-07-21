@@ -1,0 +1,13 @@
+.modal-body {
+    min-height: 150px;
+    font-size: 1rem;
+}
+.modal-body .modal-body-label {
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    transform: translateY(-50%);
+    font-weight: 400;
+}
