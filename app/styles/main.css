@@ -38,7 +38,22 @@ body {
     margin-bottom: 1rem;
 }
 .menu-bar .menu-bar-nav .menu-bar-room-link {
+    cursor: pointer;
+    font-size: 110%;
     text-decoration: none;
+}
+.chat-view {
+    position: relative;
+    float: right;
+    width: 75%;
+}
+.chat-view .active-room-header {
+    display: block;
+    position: relative;
+    padding: 1.5rem;
+}
+.chat-view .chat-view-message {
+
 }
 
 @media (min-width: 640px) {
@@ -52,6 +67,10 @@ body {
 @media (max-width: 640px) {
     .menu-bar {
         width: 40%;
+    }
+
+    .chat-view {
+        width: 60%;
     }
 
     .menu-bar .create-room-div {

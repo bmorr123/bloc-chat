@@ -5,10 +5,15 @@
     </div>
     <ul class="menu-bar-nav">
         <li class="menu-bar-room" ng-repeat="room in home.rooms">
-            <a class="menu-bar-room-link" href="#">{{ room.name }}</a>
+            <a class="menu-bar-room-link" id="{{ room.$id }}" ng-click="home.activeRoom = room; home.messages.getByRoomId(room.$id)">{{ room.name }}</a>
         </li>
     </ul>
 </section>
-<main>
-    <!-- room view structure here -->
+<main class="chat-view">
+    <div class="active-room-header">
+        <h3 class="chat-view-header">{{ home.activeRoom.name }}</h3>
+    </div>
+    <div class="chat-view-message">
+
+    </div>
 </main>
