@@ -8,6 +8,7 @@
     left: 10%;
 }
 .modal-room-input .modal-body-label {
+    cursor: pointer;
     display: block;
     font-weight: 400;
 }

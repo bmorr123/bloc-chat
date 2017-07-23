@@ -3,17 +3,21 @@
     <div class="create-room-div">
         <button type="button" class="btn btn-primary" ng-click="home.open()">New room</button>
     </div>
-    <ul class="menu-bar-nav">
-        <li class="menu-bar-room" ng-repeat="room in home.rooms">
-            <a class="menu-bar-room-link" id="{{ room.$id }}" ng-click="home.activeRoom = room; home.messages.getByRoomId(room.$id)">{{ room.name }}</a>
-        </li>
-    </ul>
+    <div class="menu-bar-nav">
+        <ul>
+            <li class="menu-bar-room" ng-repeat="room in home.rooms">
+                <a class="menu-bar-room-link" id="{{ room.$id }}" ng-click="home.activeRoom = room; home.messages.getByRoomId(room.$id)">{{ room.name }}</a>
+            </li>
+        </ul>
+    </div>
 </section>
 <main class="chat-view">
     <div class="active-room-header">
         <h3 class="chat-view-header">{{ home.activeRoom.name }}</h3>
     </div>
-    <div class="chat-view-message">
-
+    <div class="chat-view-message" ng-repeat="message in home.messages.all">
+        <span class="chat-message-user"><b>{{ message.username }}</b></span>
+        <span class="chat-message-time"><i>{{ message.sentAt * 1000 | date:'short' }}</i></span>
+        <span class="chat-message-content">{{ message.content }}</span>
     </div>
 </main>
