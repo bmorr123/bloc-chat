@@ -19,7 +19,6 @@
             Room.all.$add(room).then(function(ref) {
                 var id = ref.key;
                 console.log("Added record with id " + id);
-                var newRoomIndex = Room.all.$indexFor(id); // returns location in the array
             });
         };
 

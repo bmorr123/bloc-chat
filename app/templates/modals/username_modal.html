@@ -1,0 +1,14 @@
+<form ng-submit="userModal.saveUsername()">
+    <div class="modal-header">
+        <h3 class="modal-title" id="modal-title">Set a username</h3>
+    </div>
+    <div class="modal-body" id="modal-body">
+        <div class="modal-user-input">
+            <label class="modal-body-label" for="userName">This name will appear when you send messages, and cannot be changed</label>
+            <input id="userName" class="modal-body-text" type="text" ng-model="userModal.userName"/>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="modal-submit-big btn btn-primary" type="button" ng-click="userModal.saveUsername()">Set username</button>
+    </div>
+</form>

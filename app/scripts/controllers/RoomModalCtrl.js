@@ -21,8 +21,8 @@
         this.createRoom = function() {
             //Obtain name of room to create object
             var customRoomName = this.roomName;
-            if(!customRoomName.match(/[a-z]/i)) {
-                alert("Please enter a valid room name (must have at least one letter)");
+            if(!customRoomName.match(/^[a-zA-Z]{5,}$/i)) {
+                alert("Please enter a valid room name (min. length of 5, only letters)");
                 return null;
             }
 
