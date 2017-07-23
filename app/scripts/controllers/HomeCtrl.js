@@ -5,15 +5,15 @@
         this.activeRoom;
 
         /*
-        * @function open
-        * @desc Opens the modal to create a new room
+        * @function openRoomModal
+        * @desc Opens the new room modal to create a new room
         */
-        this.open = function() {
+        this.openRoomModal = function() {
             var modalInstance = $uibModal.open({
                 ariaLabelledBy: 'modal-title',
                 ariaDescribedBy: 'modal-body',
                 templateUrl: '/templates/modals/room_modal.html',
-                controller: 'ModalCtrl as modal'
+                controller: 'RoomModalCtrl as roomModal'
             });
         };
     }

@@ -1,14 +1,14 @@
 (function() {
-    function ModalCtrl($uibModalInstance, Room) {
+    function RoomModalCtrl($uibModalInstance, Room) {
         /*
-        * @desc Holds the value of the text entered in modal text box
+        * @desc Holds the value of the text entered in new room modal text box
         * @type {String}
         */
         this.roomName = "";
 
         /*
         * @function cancel
-        * @desc Closes the modal when the user clicks the cancel button
+        * @desc Closes the new room modal when the user clicks the cancel button
         */
         this.cancel = function() {
             $uibModalInstance.dismiss('cancel');
@@ -36,5 +36,5 @@
 
     angular
         .module('blocChat')
-        .controller('ModalCtrl', ['$uibModalInstance', 'Room', ModalCtrl]);
+        .controller('RoomModalCtrl', ['$uibModalInstance', 'Room', RoomModalCtrl]);
 })();
