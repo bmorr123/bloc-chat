@@ -22,10 +22,10 @@
             <span class="chat-message-content">{{ message.content }}</span>
         </div>
     </div>
-    <div class="send-new-message">
-        <form ng-submit="home.newMessage()">
+    <form ng-submit="home.newMessage()">
+        <div class="send-new-message">
             <textarea maxlength="500" class="create-message" placeholder="Write your message here..." ng-model="home.typedMessage"></textarea>
             <button type="button" class="create-message-submit btn btn-primary" ng-click="home.newMessage()">Send</button>
-        </form>
-    </div>
+        </div>
+    </form>
 </main>
