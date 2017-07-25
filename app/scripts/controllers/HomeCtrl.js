@@ -1,8 +1,19 @@
 (function() {
-    function HomeCtrl($uibModal, Room, Message) {
+    function HomeCtrl($uibModal, $cookies, Room, Message) {
         this.rooms = Room.all;
         this.messages = Message;
+
+        /*
+        * @desc Holds the current active chat room object
+        * @type {Object}
+        */
         this.activeRoom;
+
+        /*
+        * @desc Holds the message that the user has typed to be sent
+        * @type {String}
+        */
+        this.typedMessage = "";
 
         /*
         * @function openRoomModal
@@ -16,9 +27,40 @@
                 controller: 'RoomModalCtrl as roomModal'
             });
         };
+
+        /*
+        * @function newMessage
+        * @desc Prepares a new chat message to be sent to current room
+        */
+        this.newMessage = function() {
+            //Check to see if there is an active chat room
+            if(!this.activeRoom) {
+                alert("Please select a chat room in order to send a message");
+                return null;
+            }
+
+            //Obtain message to send
+            var message = this.typedMessage;
+            if(!message || message === "") {
+                alert("Please type a message to send");
+                return null;
+            }
+
+            var currentUser = $cookies.get('blocChatCurrentUser');
+            var currentTime = Date.now();
+
+            //Create & send new message object
+            var messageObj = { content: message,
+                                roomId: this.activeRoom.$id,
+                                sentAt: currentTime,
+                                username: currentUser};
+
+            Message.sendMessage(messageObj);
+            this.typedMessage = "";
+        };
     }
 
     angular
         .module('blocChat')
-        .controller('HomeCtrl', ['$uibModal', 'Room', 'Message', HomeCtrl]);
+        .controller('HomeCtrl', ['$uibModal', '$cookies', 'Room', 'Message', HomeCtrl]);
 })();

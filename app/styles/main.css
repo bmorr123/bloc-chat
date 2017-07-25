@@ -16,6 +16,7 @@ body {
     overflow-y: auto;
     top: 0;
     bottom: 0;
+    left: 0;
     width: 25%;
     background-color: rgba(0, 0, 0, 0.2);
     z-index: 1;
@@ -51,21 +52,33 @@ body {
     text-decoration: none;
 }
 .chat-view {
-    position: relative;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
     float: right;
     width: 75%;
 }
 .chat-view .active-room-header {
-    display: block;
+    display: table;
     position: relative;
     padding: 1.5rem;
+    height: 15%;
 }
-.chat-view .chat-view-message {
+.active-room-header .chat-view-header {
+    display: table-cell;
+    vertical-align: middle;
+}
+.chat-view .message-container {
+    height: 75%;
+    overflow-y: auto;
+}
+.message-container .chat-view-message {
     display: block;
     position: relative;
     padding: 0.5rem 1.5rem 0.5rem 1.5rem;
 }
-.chat-view .chat-view-message:nth-child(even) {
+.message-container .chat-view-message:nth-child(odd) {
     background-color: rgba(132, 112, 255, 0.2);
 }
 .chat-view-message .chat-message-time {
@@ -74,6 +87,33 @@ body {
 .chat-view-message .chat-message-content {
     display: block;
 }
+.send-new-message {
+    position: absolute;
+    bottom: 0;
+    height: 10%;
+    width: 100%;
+    border-top: 1px solid black;
+}
+.send-new-message .create-message {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 85%;
+    resize: none;
+    overflow: auto;
+    border: none;
+    font-size: 110%;
+}
+.send-new-message .create-message-submit {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 15%;
+    border-radius: 0;
+    font-size: 150%;
+}
 
 @media (min-width: 640px) {
     html { font-size: 112%; }
@@ -81,6 +121,13 @@ body {
 
 @media (min-width: 1024px) {
     html { font-size: 120%; }
+}
+
+@media (max-width: 800px) {
+    .send-new-message .create-message,
+    .send-new-message .create-message-submit {
+        font-size: 100%;
+    }
 }
 
 @media (max-width: 640px) {
@@ -102,6 +149,14 @@ body {
     .menu-bar .menu-bar-header {
         display: block;
         top: 0;
+    }
+
+    .send-new-message .create-message {
+        width: 70%;
+    }
+
+    .send-new-message .create-message-submit {
+        width: 30%;
     }
 }
 

@@ -1,7 +1,7 @@
 (function() {
     function Message($firebaseArray) {
         var Message = {};
-        var ref = firebase.database().ref().child("messages").orderByChild("roomId");
+        var ref = firebase.database().ref().child("messages");
         var messages = $firebaseArray(ref);
 
         /*
@@ -10,10 +10,22 @@
         * @param {String} roomId
         */
         Message.getByRoomId = function(roomId) {
-            var roomRef = ref.equalTo(roomId);
+            var roomRef = ref.orderByChild("roomId").equalTo(roomId);
             var roomMessages = $firebaseArray(roomRef);
 
             Message.all = roomMessages;
+        };
+
+        /*
+        * @function sendMessage
+        * @desc Sends a new message to the current chat room
+        * @param (Object) newMessage
+        */
+        Message.sendMessage = function(newMessage) {
+            messages.$add(newMessage).then(function(ref) {
+                var id = ref.key;
+                console.log("Added message with id " + id);
+            });
         };
 
         return Message;

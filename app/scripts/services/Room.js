@@ -18,7 +18,7 @@
         Room.add = function(room) {
             Room.all.$add(room).then(function(ref) {
                 var id = ref.key;
-                console.log("Added record with id " + id);
+                console.log("Added room with id " + id);
             });
         };
 

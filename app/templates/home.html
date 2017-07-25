@@ -15,9 +15,17 @@
     <div class="active-room-header">
         <h3 class="chat-view-header">{{ home.activeRoom.name }}</h3>
     </div>
-    <div class="chat-view-message" ng-repeat="message in home.messages.all">
-        <span class="chat-message-user"><b>{{ message.username }}</b></span>
-        <span class="chat-message-time"><i>{{ message.sentAt * 1000 | date:'short' }}</i></span>
-        <span class="chat-message-content">{{ message.content }}</span>
+    <div class="message-container">
+        <div class="chat-view-message" ng-repeat="message in home.messages.all">
+            <span class="chat-message-user"><b>{{ message.username }}</b></span>
+            <span class="chat-message-time"><i>{{ message.sentAt | date:'short' }}</i></span>
+            <span class="chat-message-content">{{ message.content }}</span>
+        </div>
+    </div>
+    <div class="send-new-message">
+        <form ng-submit="home.newMessage()">
+            <textarea maxlength="500" class="create-message" placeholder="Write your message here..." ng-model="home.typedMessage"></textarea>
+            <button type="button" class="create-message-submit btn btn-primary" ng-click="home.newMessage()">Send</button>
+        </form>
     </div>
 </main>
