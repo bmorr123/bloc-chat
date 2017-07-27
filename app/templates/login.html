@@ -3,17 +3,27 @@
         <h1 class="welcome-header">Welcome to Bloc Chat</h1>
     </div>
     <div class="login-register-select">
-        <button type="button" class="login-button btn btn-primary">Log In</button>
-        <button type="button" class="register-button btn btn-primary">Register</button>
+        <button type="button" class="login-button btn btn-primary" ng-click="login.loginForm = true">Log In</button>
+        <button type="button" class="register-button btn btn-primary" ng-click="login.loginForm = false">Register</button>
     </div>
-    <form ng-click="">
-        <div class="login-form">
-            <!-- login form here -->
+    <form ng-submit="">
+        <div class="login-form" ng-show="login.loginForm">
+            <label class="email-label" for="login-email">Email:</label>
+            <input type="email" id="login-email" class="login-email" ng-model="login.loginEmail"/>
+            <label class="password-label" for="login-password">Password:</label>
+            <input type="password" id="login-password" class="login-password" ng-model="login.loginPassword"/>
+            <button type="button" class="submit-button btn btn-primary" ng-click="">Go</button>
         </div>
     </form>
-    <form ng-click="">
-        <div class="registration-form">
-            <!-- registration form here -->
+    <form ng-submit="">
+        <div class="registration-form" ng-show="!login.loginForm">
+            <label class="email-label" for="register-email">Email:</label>
+            <input type="email" id="register-email" class="login-email" ng-model="login.registerEmail"/>
+            <label class="password-label" for="register-password">Password:</label>
+            <input type="password" id="register-password" class="login-password" ng-model="login.registerPassword"/>
+            <label class="user-label" for="register-username">Username:</label>
+            <input type="text" id="register-username" class="login-username" ng-model="login.registerUser"/>
+            <button type="button" class="submit-button btn btn-primary" ng-click="">Go</button>
         </div>
     </form>
 </main>

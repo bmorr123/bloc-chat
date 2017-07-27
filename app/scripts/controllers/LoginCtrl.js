@@ -1,7 +1,12 @@
 (function() {
     function LoginCtrl(LoginAuth) {
         this.loginHandle = LoginAuth;
-        //Code here...
+
+        /*
+        * @desc Dictates when to show the login form or registration form
+        * @type {Boolean}
+        */
+        this.loginForm = true;
     }
 
     angular
