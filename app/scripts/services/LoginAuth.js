@@ -28,7 +28,13 @@
         * @params {String} email, {String} password, {String} username
         */
         LoginAuth.register = function(email, password, username) {
-
+            auth.createUserWithEmailAndPassword(email, password).then(function(firebaseUser, username) {
+                firebaseUser.updateProfile({
+                    displayName: username
+                });
+            }).catch(function(error) {
+                alert("Registration failed: " + error.message);
+            });
         };
 
         return LoginAuth;

@@ -47,14 +47,14 @@
                 return null;
             }
 
-            var currentUser = $cookies.get('blocChatCurrentUser');
+            var currentUser = firebase.auth().currentUser.displayName;
             var currentTime = Date.now();
 
             //Create & send new message object
             var messageObj = { content: message,
                                 roomId: this.activeRoom.$id,
                                 sentAt: currentTime,
-                                username: currentUser};
+                                username: currentUser };
 
             Message.sendMessage(messageObj);
             this.typedMessage = "";
