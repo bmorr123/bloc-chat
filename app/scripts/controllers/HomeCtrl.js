@@ -1,7 +1,8 @@
 (function() {
-    function HomeCtrl($uibModal, $cookies, Room, Message) {
+    function HomeCtrl($uibModal, $firebaseAuth, Room, Message, LoginAuth) {
         this.rooms = Room.all;
         this.messages = Message;
+        this.loginHandle = LoginAuth;
 
         /*
         * @desc Holds the current active chat room object
@@ -62,5 +63,5 @@
 
     angular
         .module('blocChat')
-        .controller('HomeCtrl', ['$uibModal', '$cookies', 'Room', 'Message', HomeCtrl]);
+        .controller('HomeCtrl', ['$uibModal', '$firebaseAuth', 'Room', 'Message', 'LoginAuth', HomeCtrl]);
 })();

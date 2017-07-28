@@ -6,16 +6,16 @@
         <button type="button" class="login-button btn btn-primary" ng-click="login.loginForm = true">Log In</button>
         <button type="button" class="register-button btn btn-primary" ng-click="login.loginForm = false">Register</button>
     </div>
-    <form ng-submit="">
+    <form ng-submit="login.loginHandle.login(login.loginEmail, login.loginPassword)">
         <div class="login-form" ng-show="login.loginForm">
             <label class="email-label" for="login-email">Email:</label>
             <input type="email" id="login-email" class="login-email" ng-model="login.loginEmail"/>
             <label class="password-label" for="login-password">Password:</label>
             <input type="password" id="login-password" class="login-password" ng-model="login.loginPassword"/>
-            <button type="button" class="submit-button btn btn-primary" ng-click="">Go</button>
+            <button type="button" class="submit-button btn btn-primary" ng-click="login.loginHandle.login(login.loginEmail, login.loginPassword)">Go</button>
         </div>
     </form>
-    <form ng-submit="">
+    <form ng-submit="login.loginHandle.register(login.registerEmail, login.registerPassword, login.registerUser)">
         <div class="registration-form" ng-show="!login.loginForm">
             <label class="email-label" for="register-email">Email:</label>
             <input type="email" id="register-email" class="login-email" ng-model="login.registerEmail"/>
@@ -23,7 +23,7 @@
             <input type="password" id="register-password" class="login-password" ng-model="login.registerPassword"/>
             <label class="user-label" for="register-username">Username:</label>
             <input type="text" id="register-username" class="login-username" ng-model="login.registerUser"/>
-            <button type="button" class="submit-button btn btn-primary" ng-click="">Go</button>
+            <button type="button" class="submit-button btn btn-primary" ng-click="login.loginHandle.register(login.registerEmail, login.registerPassword, login.registerUser)">Go</button>
         </div>
     </form>
 </main>

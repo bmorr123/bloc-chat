@@ -65,6 +65,11 @@ body {
     padding: 1.5rem;
     height: 15%;
 }
+.chat-view .logout-button {
+    float: right;
+    margin: 1rem;
+    font-size: 150%;
+}
 .active-room-header .chat-view-header {
     display: table-cell;
     vertical-align: middle;
@@ -166,6 +171,11 @@ body {
     .chat-view-message .chat-message-content {
         display: block;
         float: none;
+    }
+
+    .chat-view .logout-button {
+        font-size: 90%;
+        margin: 1rem 1rem 0rem 0rem;
     }
 }
 
