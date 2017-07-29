@@ -16,6 +16,11 @@
         * @param {Object} room
         */
         Room.add = function(room) {
+            if(ref.orderByChild("name").equalTo(room.name)) {
+                alert("That room name already exists. Please enter a different name.");
+                return;
+            }
+
             Room.all.$add(room).then(function(ref) {
                 var id = ref.key;
                 console.log("Added room with id " + id);

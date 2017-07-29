@@ -2,29 +2,22 @@
     min-height: 200px;
     font-size: 1rem;
 }
-.modal-body .modal-room-input,
-.modal-body .modal-user-input {
+.modal-body .modal-room-input {
     position: relative;
     top: 1.5rem;
     left: 10%;
     max-width: 80%;
 }
-.modal-room-input .modal-body-label,
-.modal-user-input .modal-body-label {
+.modal-room-input .modal-body-label {
     cursor: pointer;
     display: block;
     font-weight: 400;
 }
-.modal-room-input .modal-body-text,
-.modal-user-input .modal-body-text {
+.modal-room-input .modal-body-text {
     display: block;
     width: 100%;
 }
 .modal-footer .modal-cancel,
-.modal-footer .modal-submit,
-.modal-footer .modal-submit-big {
+.modal-footer .modal-submit {
     font-size: 1rem;
-}
-.modal-footer .modal-submit-big {
-    width: 100%;
 }

@@ -1,5 +1,5 @@
 (function() {
-    function LoginAuth($firebaseAuth, $firebaseArray) {
+    function LoginAuth($firebaseAuth) {
         var LoginAuth = {};
         var auth = firebase.auth();
 
@@ -28,13 +28,24 @@
         * @params {String} email, {String} password, {String} username
         */
         LoginAuth.register = function(email, password, username) {
-            auth.createUserWithEmailAndPassword(email, password).then(function(firebaseUser, username) {
-                firebaseUser.updateProfile({
-                    displayName: username
+            if(!username.match(/^[a-zA-Z0-9]{5,}$/i)) {
+                alert("Please enter a valid username (min. length of 5, only letters and/or numbers)");
+                return null;
+            }
+
+            var user = null;
+
+            auth.createUserWithEmailAndPassword(email, password)
+                .then(function() {
+                    user = auth.currentUser;
+
+                    user.updateProfile({
+                        displayName: username
+                    });
+                })
+                .catch(function(error) {
+                    alert("Registration failed: " + error.message);
                 });
-            }).catch(function(error) {
-                alert("Registration failed: " + error.message);
-            });
         };
 
         return LoginAuth;
@@ -42,5 +53,5 @@
 
     angular
         .module('blocChat')
-        .factory('LoginAuth', ['$firebaseAuth', '$firebaseArray', LoginAuth]);
+        .factory('LoginAuth', ['$firebaseAuth', LoginAuth]);
 })();
