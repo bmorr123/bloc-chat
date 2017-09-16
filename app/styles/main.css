@@ -192,6 +192,6 @@ body {
 
 @media (max-height: 450px) {
     .menu-bar .menu-bar-nav {
-        height: 50%;
+        height: 35%;
     }
 }

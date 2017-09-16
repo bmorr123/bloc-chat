@@ -30,6 +30,6 @@
     }
 
     angular
-        .module('blocChat')
+        .module('chattastic')
         .controller('LoginCtrl', ['LoginAuth', LoginCtrl]);
 })();

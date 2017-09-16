@@ -62,6 +62,6 @@
     }
 
     angular
-        .module('blocChat')
+        .module('chattastic')
         .controller('HomeCtrl', ['$uibModal', '$firebaseAuth', 'Room', 'Message', 'LoginAuth', HomeCtrl]);
 })();

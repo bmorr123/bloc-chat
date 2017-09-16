@@ -35,6 +35,6 @@
     }
 
     angular
-        .module('blocChat')
+        .module('chattastic')
         .controller('RoomModalCtrl', ['$uibModalInstance', 'Room', RoomModalCtrl]);
 })();

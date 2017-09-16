@@ -1,5 +1,5 @@
 (function() {
-    function BlocChatAuth($rootScope, $firebaseAuth, $location) {
+    function ChattasticAuth($rootScope, $firebaseAuth, $location) {
         firebase.auth().onAuthStateChanged(function(user) {
             if(user) {
                 $rootScope.$apply(function() {
@@ -14,6 +14,6 @@
     }
 
     angular
-        .module('blocChat')
-        .run(['$rootScope', '$firebaseAuth', '$location', BlocChatAuth]);
+        .module('chattastic')
+        .run(['$rootScope', '$firebaseAuth', '$location', ChattasticAuth]);
 })();

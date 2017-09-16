@@ -52,6 +52,6 @@
     }
 
     angular
-        .module('blocChat')
+        .module('chattastic')
         .factory('LoginAuth', ['$firebaseAuth', LoginAuth]);
 })();
